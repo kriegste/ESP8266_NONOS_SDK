@@ -132,6 +132,12 @@ static void free_netconn(lwIP_netconn *netconn)
 static lwIP_netconn *
 netconn_alloc(netconn_type type, void *arg)
 {
+    int heap = system_get_free_heap_size();
+    if (heap < 15000) {
+        os_printf("* netconn_alloc heap=%d\n", heap);
+        return NULL;
+    }
+
     sint8 ret = ERR_OK;
     lwIP_netconn *netconn = NULL;
     struct tcp_pcb *pcb = arg;
@@ -299,6 +305,12 @@ exit:
 
 static err_t do_accepted(void *arg, struct tcp_pcb *newpcb, err_t err)
 {
+    int heap = system_get_free_heap_size();
+    if (heap < 15000) {
+        os_printf("* do_accepted heap=%d\n", heap);
+        return ERR_MEM;
+    }
+
     lwIP_netconn *newconn = NULL;
     lwIP_netconn *conn = arg;
     err = ERR_OK;
@@ -317,10 +329,11 @@ static err_t do_accepted(void *arg, struct tcp_pcb *newpcb, err_t err)
     }
 
     lwIP_REQUIRE_ACTION(conn, exit, err = ESP_ARG);
+    lwIP_REQUIRE_ACTION(newpcb, exit, err = ESP_ARG);
     /* We have to set the callback here even though
      * the new socket is unknown. conn->socket is marked as -1. */
     newconn = netconn_alloc(conn->type, newpcb);
-    lwIP_REQUIRE_ACTION(conn, exit, err = ERR_MEM);
+    lwIP_REQUIRE_ACTION(newconn, exit, err = ERR_MEM);
     newconn->tcp = newpcb;
     setup_tcp(newconn);
 	newconn->state = NETCONN_STATE_ESTABLISHED;

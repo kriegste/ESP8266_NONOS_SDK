@@ -502,9 +502,9 @@ static int mbedtls_hanshake_finished(mbedtls_msg *msg)
     ssl->out_iv  = ssl->out_buf + 13;
     ssl->out_msg = ssl->out_buf + 29;
     os_memcpy(ssl->out_ctr, finished->finished_buf, finished->finished_len);
-    mbedtls_finished_free(&msg->pfinished);
 
 exit:
+    if (&msg->pfinished) mbedtls_finished_free(&msg->pfinished);
     return ret;
 }
 #endif

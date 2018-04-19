@@ -100,11 +100,14 @@ typedef enum {
 
 #define STORE_ATTR __attribute__((aligned(4)))
 
+#include <stdint.h>
+#include <stdbool.h>
+
 #ifndef __cplusplus
-typedef unsigned char   bool;
+//typedef unsigned char   bool;
 #define BOOL            bool
-#define true            (1)
-#define false           (0)
+//#define true            (1)
+//#define false           (0)
 #define TRUE            true
 #define FALSE           false
 

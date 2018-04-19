@@ -743,5 +743,9 @@ void espconn_dns_setserver(uint8 numdns, ip_addr_t *dnsserver);
  *  Returns     : dnsserver -- IP address of the DNS server to set
 *******************************************************************************/
 ip_addr_t espconn_dns_getserver(uint8 numdns);
+
+void espconn_tcp_set_max_retran(int);
+void espconn_tcp_set_max_syn(int);
+
 #endif
 

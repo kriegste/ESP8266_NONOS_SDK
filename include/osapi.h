@@ -90,5 +90,10 @@ int os_printf_plus(const char *format, ...)  __attribute__ ((format (printf, 1, 
 unsigned long os_random(void);
 int os_get_random(unsigned char *buf, size_t len);
 
+int strcasecmp(const char *a, const char *b);
+
+#include <stdarg.h>
+int ets_vsprintf(char *str, const char *format, va_list argptr);
+
 #endif
 

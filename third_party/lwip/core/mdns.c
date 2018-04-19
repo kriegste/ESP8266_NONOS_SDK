@@ -963,15 +963,10 @@ mdns_get_hostname(void) {
 void ICACHE_FLASH_ATTR
 mdns_set_hostname(char *name) {
 	if (name == NULL) {
-		os_strncpy(host_name, "Espressif", os_strlen("Espressif")+3);
+		os_strncpy(host_name, "Espressif", MDNS_NAME_LENGTH);
 		return;
 	}
-	if (os_strlen(name) + 3 <= MDNS_NAME_LENGTH ){
-		os_strncpy(host_name, name, os_strlen(name) );
-//		os_memset(host_name + os_strlen(host_name) ,0x00,3);
-	} else {
-		os_strncpy(host_name, name, MDNS_NAME_LENGTH);
-	}
+	os_strncpy(host_name, name, MDNS_NAME_LENGTH);
 }
 
 void ICACHE_FLASH_ATTR
