@@ -112,7 +112,7 @@ void gpio_intr_ack(uint32 ack_mask);
 
 void gpio_pin_wakeup_enable(uint32 i, GPIO_INT_TYPE intr_state);
 
-void gpio_pin_wakeup_disable();
+void gpio_pin_wakeup_disable(void);
 
 void gpio_pin_intr_state_set(uint32 i, GPIO_INT_TYPE intr_state);
 

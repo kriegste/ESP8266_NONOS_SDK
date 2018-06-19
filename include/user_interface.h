@@ -76,7 +76,7 @@ bool system_deep_sleep_instant(uint64 time_in_us);
 
 uint8 system_upgrade_userbin_check(void);
 void system_upgrade_reboot(void);
-uint8 system_upgrade_flag_check();
+uint8 system_upgrade_flag_check(void);
 void system_upgrade_flag_set(uint8 flag);
 
 void system_timer_reinit(void);
@@ -97,7 +97,7 @@ void system_print_meminfo(void);
 uint32 system_get_free_heap_size(void);
 
 void system_set_os_print(uint8 onoff);
-uint8 system_get_os_print();
+uint8 system_get_os_print(void);
 
 uint64 system_mktime(uint32 year, uint32 mon, uint32 day, uint32 hour, uint32 min, uint32 sec);
 
@@ -394,7 +394,7 @@ uint8 wifi_get_channel(void);
 bool wifi_set_channel(uint8 channel);
 
 void wifi_status_led_install(uint8 gpio_id, uint32 gpio_name, uint8 gpio_func);
-void wifi_status_led_uninstall();
+void wifi_status_led_uninstall(void);
 
 /** Get the absolute difference between 2 u32_t values (correcting overflows)
  * 'a' is expected to be 'higher' (without overflow) than 'b'. */
@@ -751,5 +751,9 @@ bool wifi_set_country(wifi_country_t *country);
 bool wifi_get_country(wifi_country_t *country);
 
 bool wifi_softap_deauth(uint8 mac[6]);
+
+uint32 user_rf_cal_sector_set(void);
+void user_rf_pre_init(void);
+void user_init(void);
 
 #endif
