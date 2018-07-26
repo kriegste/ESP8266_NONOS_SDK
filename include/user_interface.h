@@ -1,3 +1,4 @@
+
 /*
  * ESPRESSIF MIT License
  *
@@ -39,7 +40,7 @@
 
 #ifndef MAC2STR
 #define MAC2STR(a) (a)[0], (a)[1], (a)[2], (a)[3], (a)[4], (a)[5]
-#define MACSTR "%02X:%02X:%02X:%02X:%02X:%02X"
+#define MACSTR "%02x:%02x:%02x:%02x:%02x:%02x"
 #endif
 
 enum rst_reason {
@@ -728,7 +729,7 @@ typedef struct {
   * @attention 1. The default country is {.cc="CN", .schan=1, .nchan=13, policy=WIFI_COUNTRY_POLICY_AUTO}
   * @attention 2. When the country policy is WIFI_COUNTRY_POLICY_AUTO, use the country info of AP to which the station is
   *               connected. E.g. if the configured country info is {.cc="USA", .schan=1, .nchan=11}, the country info of
-  *               the AP to which the station is connected is {.cc="JP", .schan=1, .nchan=14}, then our country info is 
+  *               the AP to which the station is connected is {.cc="JP", .schan=1, .nchan=14}, then our country info is
   *               {.cc="JP", .schan=1, .nchan=14}. If the station disconnected from the AP, the country info back to
   *               {.cc="USA", .schan=1, .nchan=11} again.
   * @attention 3. When the country policy is WIFI_COUNTRY_POLICY_MANUAL, always use the configured country info.
@@ -753,10 +754,69 @@ bool wifi_set_country(wifi_country_t *country);
   */
 bool wifi_get_country(wifi_country_t *country);
 
+typedef enum {
+    SYSTEM_PARTITION_INVALID = 0,
+    SYSTEM_PARTITION_BOOTLOADER,            /* user can't modify this partition address, but can modify size */
+    SYSTEM_PARTITION_OTA_1,                 /* user can't modify this partition address, but can modify size */
+    SYSTEM_PARTITION_OTA_2,                 /* user can't modify this partition address, but can modify size */
+    SYSTEM_PARTITION_RF_CAL,                /* user must define this partition */
+    SYSTEM_PARTITION_PHY_DATA,              /* user must define this partition */
+    SYSTEM_PARTITION_SYSTEM_PARAMETER,      /* user must define this partition */
+    SYSTEM_PARTITION_AT_PARAMETER,
+    SYSTEM_PARTITION_SSL_CLIENT_CERT_PRIVKEY,
+    SYSTEM_PARTITION_SSL_CLIENT_CA,
+    SYSTEM_PARTITION_SSL_SERVER_CERT_PRIVKEY,
+    SYSTEM_PARTITION_SSL_SERVER_CA,
+    SYSTEM_PARTITION_WPA2_ENTERPRISE_CERT_PRIVKEY,
+    SYSTEM_PARTITION_WPA2_ENTERPRISE_CA,
+
+    SYSTEM_PARTITION_CUSTOMER_BEGIN = 100,  /* user can define partition after here */
+    SYSTEM_PARTITION_MAX
+} partition_type_t;
+
+typedef struct {
+    partition_type_t type;    /* the partition type */
+    uint32_t addr;            /* the partition address */
+    uint32_t size;            /* the partition size */
+} partition_item_t;
+
+/**
+  * @brief     regist partition table information, user MUST call it in user_pre_init()
+  *
+  * @param     partition_table: the partition table
+  * @param     partition_num:   the partition number in partition table
+  * @param     map:             the flash map
+  *
+  * @return  true : succeed
+  * @return false : fail
+  */
+bool system_partition_table_regist(
+        const partition_item_t* partition_table,
+        uint32_t partition_num,
+        uint32_t map
+    );
+
+/**
+  * @brief     get ota partition size
+  *
+  * @return    the size of ota partition
+  */
+uint32_t system_partition_get_ota_partition_size(void);
+
+/**
+  * @brief     get partition information
+  *
+  * @param     type:             the partition type
+  * @param     partition_item:   the point to store partition information
+  *
+  * @return  true : succeed
+  * @return false : fail
+  */
+bool system_partition_get_item(partition_type_t type, partition_item_t* partition_item);
+
 bool wifi_softap_deauth(uint8 mac[6]);
 
-uint32 user_rf_cal_sector_set(void);
-void user_rf_pre_init(void);
+void user_pre_init(void);
 void user_init(void);
 
 #endif
