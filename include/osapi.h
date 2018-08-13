@@ -78,6 +78,9 @@ int os_printf_plus(const char *format, ...)  __attribute__ ((format (printf, 1, 
 
 #define os_sprintf  ets_sprintf
 
+#define os_snprintf_plus  ets_snprintf
+#define os_snprintf(buf, size, fmt, ...) os_snprintf_plus(buf, size, fmt, ##__VA_ARGS__)
+
 #ifdef USE_OPTIMIZE_PRINTF
 #define os_printf(fmt, ...) do {	\
 	static const char flash_str[] ICACHE_RODATA_ATTR STORE_ATTR = fmt;	\

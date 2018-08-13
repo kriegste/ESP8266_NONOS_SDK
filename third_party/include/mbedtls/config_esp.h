@@ -183,7 +183,7 @@
  *
  * Uncomment to get errors on using deprecated functions.
  */
-//#define MBEDTLS_DEPRECATED_REMOVED
+#define MBEDTLS_DEPRECATED_REMOVED
 
 /* \} name SECTION: System support */
 
@@ -543,7 +543,7 @@
  *      MBEDTLS_TLS_RSA_PSK_WITH_3DES_EDE_CBC_SHA
  *      MBEDTLS_TLS_RSA_PSK_WITH_RC4_128_SHA
  */
-#define MBEDTLS_KEY_EXCHANGE_RSA_PSK_ENABLED
+//#define MBEDTLS_KEY_EXCHANGE_RSA_PSK_ENABLED 22:21
 
 /**
  * \def MBEDTLS_KEY_EXCHANGE_RSA_ENABLED
@@ -571,6 +571,7 @@
  *      MBEDTLS_TLS_RSA_WITH_RC4_128_SHA
  *      MBEDTLS_TLS_RSA_WITH_RC4_128_MD5
  */
+// Wichtig
 #define MBEDTLS_KEY_EXCHANGE_RSA_ENABLED
 
 /**
@@ -727,7 +728,7 @@
  *
  * Disable if you only need to support RFC 5915 + 5480 key formats.
  */
-#define MBEDTLS_PK_PARSE_EC_EXTENDED
+//#define MBEDTLS_PK_PARSE_EC_EXTENDED 19:56
 
 /**
  * \def MBEDTLS_ERROR_STRERROR_DUMMY
@@ -742,7 +743,7 @@
  * Disable if you run into name conflicts and want to really remove the
  * mbedtls_strerror()
  */
-#define MBEDTLS_ERROR_STRERROR_DUMMY
+//#define MBEDTLS_ERROR_STRERROR_DUMMY
 
 /**
  * \def MBEDTLS_GENPRIME
@@ -751,7 +752,7 @@
  *
  * Requires: MBEDTLS_BIGNUM_C
  */
-#define MBEDTLS_GENPRIME
+//#define MBEDTLS_GENPRIME 20:05
 
 /**
  * \def MBEDTLS_FS_IO
@@ -832,7 +833,7 @@
  *
  * Comment this macro to disable support for external private RSA keys.
  */
-#define MBEDTLS_PK_RSA_ALT_SUPPORT
+//#define MBEDTLS_PK_RSA_ALT_SUPPORT 20:05
 
 /**
  * \def MBEDTLS_PKCS1_V15
@@ -854,7 +855,7 @@
  *
  * This enables support for RSAES-OAEP and RSASSA-PSS operations.
  */
-#define MBEDTLS_PKCS1_V21
+//#define MBEDTLS_PKCS1_V21 22:26
 
 /**
  * \def MBEDTLS_RSA_NO_CRT
@@ -887,7 +888,8 @@
  *
  * Uncomment to enable the smaller implementation of SHA256.
  */
-//#define MBEDTLS_SHA256_SMALLER
+#define MBEDTLS_SHA256_SMALLER
+// 20:05
 
 /**
  * \def MBEDTLS_SSL_AEAD_RANDOM_IV
@@ -913,7 +915,7 @@
  *
  * Enable sending of all alert messages
  */
-#define MBEDTLS_SSL_ALL_ALERT_MESSAGES
+//#define MBEDTLS_SSL_ALL_ALERT_MESSAGES
 
 /**
  * \def MBEDTLS_SSL_DEBUG_ALL
@@ -1004,7 +1006,7 @@
  *
  * Comment this macro to disable 1/n-1 record splitting.
  */
-#define MBEDTLS_SSL_CBC_RECORD_SPLITTING
+//#define MBEDTLS_SSL_CBC_RECORD_SPLITTING
 
 /**
  * \def MBEDTLS_SSL_RENEGOTIATION
@@ -1072,7 +1074,7 @@
  *
  * Comment this macro to disable support for TLS 1.0
  */
-#define MBEDTLS_SSL_PROTO_TLS1
+//#define MBEDTLS_SSL_PROTO_TLS1
 
 /**
  * \def MBEDTLS_SSL_PROTO_TLS1_1
@@ -1084,7 +1086,7 @@
  *
  * Comment this macro to disable support for TLS 1.1 / DTLS 1.0
  */
-#define MBEDTLS_SSL_PROTO_TLS1_1
+//#define MBEDTLS_SSL_PROTO_TLS1_1 20:07
 
 /**
  * \def MBEDTLS_SSL_PROTO_TLS1_2
@@ -1215,7 +1217,7 @@
  *
  * Comment this macro to disable support for server name indication in SSL
  */
-#define MBEDTLS_SSL_SERVER_NAME_INDICATION
+//#define MBEDTLS_SSL_SERVER_NAME_INDICATION 22:29
 
 /**
  * \def MBEDTLS_SSL_TRUNCATED_HMAC
@@ -1362,7 +1364,7 @@
  *
  * This modules adds support for the AES-NI instructions on x86-64
  */
-#define MBEDTLS_AESNI_C
+//#define MBEDTLS_AESNI_C 19:59
 
 /**
  * \def MBEDTLS_AES_C
@@ -1878,7 +1880,7 @@
  * This module is required for SSL/TLS and X.509.
  * PEM_PARSE uses MD5 for decrypting encrypted keys.
  */
-#define MBEDTLS_MD5_C
+//#define MBEDTLS_MD5_C 22:36
 
 /**
  * \def MBEDTLS_MEMORY_BUFFER_ALLOC_C
@@ -1960,7 +1962,7 @@
  *
  * This modules adds support for decoding / parsing PEM files.
  */
-#define MBEDTLS_PEM_PARSE_C
+//#define MBEDTLS_PEM_PARSE_C 20:00
 
 /**
  * \def MBEDTLS_PEM_WRITE_C
@@ -1976,7 +1978,7 @@
  *
  * This modules adds support for encoding / writing PEM files.
  */
-#define MBEDTLS_PEM_WRITE_C
+//#define MBEDTLS_PEM_WRITE_C 22:38
 
 /**
  * \def MBEDTLS_PK_C
@@ -2130,7 +2132,7 @@
  *
  * This module is required for SSL/TLS and SHA1-signed certificates.
  */
-#define MBEDTLS_SHA1_C
+//#define MBEDTLS_SHA1_C 20:13
 
 /**
  * \def MBEDTLS_SHA256_C
@@ -2162,7 +2164,7 @@
  *
  * This module adds support for SHA-384 and SHA-512.
  */
-#define MBEDTLS_SHA512_C
+//#define MBEDTLS_SHA512_C 20:10
 
 /**
  * \def MBEDTLS_SSL_CACHE_C
@@ -2224,7 +2226,7 @@
  *
  * This module is required for SSL/TLS server support.
  */
-#define MBEDTLS_SSL_SRV_C
+//#define MBEDTLS_SSL_SRV_C 20:02
 
 /**
  * \def MBEDTLS_SSL_TLS_C
@@ -2284,7 +2286,7 @@
  *
  * This module provides run-time version information.
  */
-#define MBEDTLS_VERSION_C
+//#define MBEDTLS_VERSION_C 20:02
 
 /**
  * \def MBEDTLS_X509_USE_C
@@ -2331,7 +2333,7 @@
  *
  * This module is required for X.509 CRL parsing.
  */
-#define MBEDTLS_X509_CRL_PARSE_C
+//#define MBEDTLS_X509_CRL_PARSE_C 22:49
 
 /**
  * \def MBEDTLS_X509_CSR_PARSE_C
@@ -2345,7 +2347,7 @@
  *
  * This module is used for reading X.509 certificate request.
  */
-#define MBEDTLS_X509_CSR_PARSE_C
+//#define MBEDTLS_X509_CSR_PARSE_C 22:47
 
 /**
  * \def MBEDTLS_X509_CREATE_C
@@ -2358,7 +2360,7 @@
  *
  * This module is the basis for creating X.509 certificates and CSRs.
  */
-#define MBEDTLS_X509_CREATE_C
+//#define MBEDTLS_X509_CREATE_C 22:45
 
 /**
  * \def MBEDTLS_X509_CRT_WRITE_C
@@ -2371,7 +2373,7 @@
  *
  * This module is required for X.509 certificate creation.
  */
-#define MBEDTLS_X509_CRT_WRITE_C
+//#define MBEDTLS_X509_CRT_WRITE_C 22:44
 
 /**
  * \def MBEDTLS_X509_CSR_WRITE_C
@@ -2384,7 +2386,7 @@
  *
  * This module is required for X.509 certificate request writing.
  */
-#define MBEDTLS_X509_CSR_WRITE_C
+//#define MBEDTLS_X509_CSR_WRITE_C 22:42
 
 /**
  * \def MBEDTLS_XTEA_C
@@ -2394,7 +2396,7 @@
  * Module:  library/xtea.c
  * Caller:
  */
-#define MBEDTLS_XTEA_C
+//#define MBEDTLS_XTEA_C 20:02
 
 /* \} name SECTION: mbed TLS modules */
 

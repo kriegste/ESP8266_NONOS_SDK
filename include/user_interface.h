@@ -818,5 +818,6 @@ bool wifi_softap_deauth(uint8 mac[6]);
 
 void user_pre_init(void);
 void user_init(void);
+uint32 user_iram_memory_is_enabled(void);
 
 #endif

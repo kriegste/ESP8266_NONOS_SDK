@@ -430,12 +430,14 @@ static void mbedtls_fail_info(espconn_msg *pinfo, int ret)
 	lwIP_REQUIRE_ACTION(TLSmsg,exit,ret = ERR_ARG);
 
 	if (TLSmsg->quiet){
+/*
 		if (pinfo->preverse != NULL) {
 			os_printf("server's data invalid protocol\n");
 		} else {
 			os_printf("client's data invalid protocol\n");
 		}
-            if(ret != MBEDTLS_ERR_SSL_PEER_CLOSE_NOTIFY){
+*/
+           if(ret != MBEDTLS_ERR_SSL_PEER_CLOSE_NOTIFY){
                 mbedtls_ssl_close_notify(&TLSmsg->ssl);
             }
 	} else{
@@ -446,7 +448,7 @@ static void mbedtls_fail_info(espconn_msg *pinfo, int ret)
 		}
 	}
 
-	os_printf("Reason:[-0x%2x]\n",-ret);
+//	os_printf("Reason:[-0x%2x]\n",-ret);
 	/*Error code convert*/
 	ret = -ret;
 	if ((ret & 0xFF) != 0){
@@ -879,9 +881,9 @@ int __attribute__((weak)) mbedtls_parse_internal(int socket, sint8 error)
 
 					/*insert the node to the active connection list*/
 					espconn_list_creat(&plink_active, Threadmsg);
-					os_printf("server handshake start.\n");
-				} else{
-					os_printf("client handshake start.\n");
+//					os_printf("server handshake start.\n");
+//				} else{
+//					os_printf("client handshake start.\n");
 				}
 				config_flag = mbedtls_msg_config(TLSmsg);
 				if (config_flag){
@@ -912,11 +914,13 @@ int __attribute__((weak)) mbedtls_parse_internal(int socket, sint8 error)
 			/**/
 			TLSmsg->quiet = mbedtls_handshake_result(TLSmsg);
 			if (TLSmsg->quiet){
+/*
 				if (Threadmsg->preverse != NULL) {
 					os_printf("server handshake ok!\n");
 				} else {
 					os_printf("client handshake ok!\n");
 				}
+*/
 //				mbedtls_keep_alive(TLSmsg->fd.fd, 0, SSL_KEEP_IDLE, SSL_KEEP_INTVL, SSL_KEEP_CNT);
 				mbedtls_session_free(&TLSmsg->psession);
 				mbedtls_handshake_succ(&TLSmsg->ssl);
