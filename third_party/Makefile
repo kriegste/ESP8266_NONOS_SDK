@@ -29,7 +29,7 @@ endif # } PDIR
 APPDIR = .
 LDDIR = ../ld
 
-CCFLAGS += -Os -fno-caller-saves -fno-move-loop-invariants -fno-tree-loop-optimize -freorder-blocks-and-partition -fno-tree-tail-merge -fno-tree-copyrename
+CCFLAGS += -Os $(OPT)
 
 TARGET_LDFLAGS =		\
 	-nostdlib		\

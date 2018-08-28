@@ -32,6 +32,18 @@ endif
 #DEFINES += 
 CCFLAGS += -DPBUF_RSV_FOR_WLAN -DEBUF_LWIP
 
+CCFLAGS += -freorder-blocks-and-partition
+CCFLAGS += -fno-guess-branch-probability
+CCFLAGS += -fno-jump-tables
+CCFLAGS += -fno-tree-copyrename
+CCFLAGS += -fno-tree-loop-optimize
+CCFLAGS += -fprofile-use
+CCFLAGS += -free
+CCFLAGS += -fno-rerun-cse-after-loop
+CCFLAGS += -fno-ipa-pure-const
+CCFLAGS += -fno-cse-follow-jumps
+CCFLAGS += -fira-loop-pressure
+
 #############################################################
 # Recursion Magic - Don't touch this!!
 #

@@ -28,6 +28,15 @@ endif
 DEFINES += -DMBEDTLS_CONFIG_FILE='"config_esp.h"'
 #CCFLAGS += --rename-section .text=.irom0.text --rename-section .literal=.irom0.literal
 
+CCFLAGS += -fno-guess-branch-probability
+CCFLAGS += -freorder-blocks-and-partition
+CCFLAGS += -fno-tree-loop-optimize
+CCFLAGS += -fno-cse-follow-jumps
+CCFLAGS += -fpeel-loops
+CCFLAGS += -fno-regmove
+CCFLAGS += -fira-loop-pressure
+CCFLAGS += -ftree-vectorize
+
 #############################################################
 # Recursion Magic - Don't touch this!!
 #
