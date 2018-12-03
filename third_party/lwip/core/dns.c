@@ -883,7 +883,10 @@ dns_enqueue(const char *name, dns_found_callback found, void *callback_arg)
   size_t namelen;
 
   /* search an unused entry, or the oldest one */
-  lseq = lseqi = 0;
+  lseq = 0;
+  // Corrected initialization of lseqi (was 0 in original source); from newest lwIP source: https://github.com/lwip-tcpip/lwip/blob/master/src/core/dns.c#L1438
+  // was part of this commit: https://github.com/lwip-tcpip/lwip/commit/a5e06ed5b7aca841d1f157dccb968bd38e9df9dd#diff-5a43be38bfa118bd65886e68cb59ed81
+  lseqi = DNS_TABLE_SIZE; // <---
   for (i = 0; i < DNS_TABLE_SIZE; ++i) {
     pEntry = &dns_table[i];
     /* is it an unused entry ? */
@@ -892,8 +895,9 @@ dns_enqueue(const char *name, dns_found_callback found, void *callback_arg)
 
     /* check if this is the oldest completed entry */
     if (pEntry->state == DNS_STATE_DONE) {
-      if ((dns_seqno - pEntry->seqno) > lseq) {
-        lseq = dns_seqno - pEntry->seqno;
+      u8_t age = (u8_t)(dns_seqno - pEntry->seqno);
+      if (age > lseq) {
+        lseq = age;
         lseqi = i;
       }
     }
