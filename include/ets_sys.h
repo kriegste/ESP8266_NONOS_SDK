@@ -130,7 +130,4 @@ void NmiTimSetFunc(void (*func)(void));
 #define ETS_SDIO_INTR_DISABLE() \
     ETS_INTR_DISABLE(ETS_SDIO_INUM)
 
-void ets_isr_mask(unsigned intr);
-void ets_isr_unmask(unsigned intr);
-
 #endif /* _ETS_SYS_H */
