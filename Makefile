@@ -5,7 +5,7 @@ ifndef PDIR
 endif
 
 ifeq ($(COMPILE), gcc)
-	AR = xtensa-lx106-elf-ar
+	AR = xtensa-lx106-elf-gcc-ar
 	CC = xtensa-lx106-elf-gcc
 	CXX = xtensa-lx106-elf-g++
 	NM = xtensa-lx106-elf-nm

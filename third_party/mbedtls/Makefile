@@ -28,14 +28,37 @@ endif
 DEFINES += -DMBEDTLS_CONFIG_FILE='"config_esp.h"'
 #CCFLAGS += --rename-section .text=.irom0.text --rename-section .literal=.irom0.literal
 
-CCFLAGS += -fno-guess-branch-probability
-CCFLAGS += -freorder-blocks-and-partition
-CCFLAGS += -fno-tree-loop-optimize
-CCFLAGS += -fno-cse-follow-jumps
-CCFLAGS += -fpeel-loops
-CCFLAGS += -fno-regmove
-CCFLAGS += -fira-loop-pressure
-CCFLAGS += -ftree-vectorize
+CCFLAGS += -Os
+
+CCFLAGS += -fno-tree-phiprop
+CCFLAGS += -fno-ipa-sra
+CCFLAGS += -fno-sched-critical-path-heuristic
+CCFLAGS += -fno-ipa-cp
+CCFLAGS += -fno-move-loop-invariants
+CCFLAGS += -fipa-pta
+CCFLAGS += -fno-tree-scev-cprop
+CCFLAGS += -fno-rerun-cse-after-loop
+CCFLAGS += -fmerge-all-constants
+CCFLAGS += -fno-tree-loop-ivcanon
+CCFLAGS += -fno-jump-tables
+CCFLAGS += -fno-tree-copy-prop
+CCFLAGS += -fno-tree-pre
+
+CCFLAGS += -fschedule-insns
+CCFLAGS += -free
+CCFLAGS += -fno-tree-bit-ccp
+CCFLAGS += -fprofile-use
+CCFLAGS += -fno-tree-loop-im
+
+CCFLAGS += -fno-tree-slp-vectorize
+CCFLAGS += -fno-sched-interblock
+CCFLAGS += -fno-rename-registers
+CCFLAGS += -fsched-pressure
+CCFLAGS += -fno-sched-dep-count-heuristic
+
+CCFLAGS += -flive-range-shrinkage
+
+CCFLAGS += $(OPT)
 
 #############################################################
 # Recursion Magic - Don't touch this!!

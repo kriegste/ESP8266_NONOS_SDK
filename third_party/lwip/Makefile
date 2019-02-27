@@ -32,17 +32,29 @@ endif
 #DEFINES += 
 CCFLAGS += -DPBUF_RSV_FOR_WLAN -DEBUF_LWIP
 
-CCFLAGS += -freorder-blocks-and-partition
-CCFLAGS += -fno-guess-branch-probability
+CCFLAGS += -Os
+CCFLAGS += -finline-limit=0
+
+CCFLAGS += -fno-optimize-sibling-calls
+CCFLAGS += -fno-tree-copy-prop
+CCFLAGS += -fno-tree-loop-optimize
+CCFLAGS += -fno-tree-sra
+CCFLAGS += -free
+CCFLAGS += -fmerge-all-constants
 CCFLAGS += -fno-jump-tables
 CCFLAGS += -fno-tree-copyrename
-CCFLAGS += -fno-tree-loop-optimize
 CCFLAGS += -fprofile-use
-CCFLAGS += -free
-CCFLAGS += -fno-rerun-cse-after-loop
-CCFLAGS += -fno-ipa-pure-const
-CCFLAGS += -fno-cse-follow-jumps
-CCFLAGS += -fira-loop-pressure
+CCFLAGS += -fno-tree-dce
+CCFLAGS += -fno-tree-forwprop
+CCFLAGS += -fno-tree-pre
+
+CCFLAGS += -fno-tree-slsr
+CCFLAGS += -fno-branch-probabilities
+CCFLAGS += -fno-tree-pta
+
+CCFLAGS += -fno-sched-dep-count-heuristic
+
+CCFLAGS += $(OPT)
 
 #############################################################
 # Recursion Magic - Don't touch this!!
