@@ -221,8 +221,9 @@ CCFLAGS += 			\
 	-fno-builtin-printf \
 	-fno-guess-branch-probability \
 	-freorder-blocks-and-partition \
-	-fno-cse-follow-jumps
-#	-Wall			
+	-fno-cse-follow-jumps \
+	-flto
+#	-Wall
 
 DEFINES += -DSPI_FLASH_SIZE_MAP=$(size_map)
 CFLAGS = $(CCFLAGS) $(DEFINES) $(EXTRA_CCFLAGS) $(INCLUDES)
