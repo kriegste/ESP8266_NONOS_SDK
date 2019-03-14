@@ -222,7 +222,6 @@ CCFLAGS += 			\
 	-fno-guess-branch-probability \
 	-freorder-blocks-and-partition \
 	-fno-cse-follow-jumps \
-	-flto
 #	-Wall
 
 DEFINES += -DSPI_FLASH_SIZE_MAP=$(size_map)
