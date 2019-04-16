@@ -53,8 +53,15 @@ char *ets_strstr(const char *s1, const char *s2);
 #define os_memcpy ets_memcpy
 #define os_memmove ets_memmove
 #define os_memset ets_memset
-#define os_strcat strcat
-#define os_strchr strchr
+//#define os_strcat strcat
+//#define os_strchr strchr
+
+char *ets_strchr(const char *str, unsigned int c);
+char *ets_strcat(char *to, const char *from);
+
+#define os_strcat ets_strcat
+#define os_strchr ets_strchr
+
 #define os_strcmp ets_strcmp
 #define os_strcpy ets_strcpy
 #define os_strlen ets_strlen
@@ -97,6 +104,7 @@ int strcasecmp(const char *a, const char *b);
 
 #include <stdarg.h>
 int ets_vsprintf(char *str, const char *format, va_list argptr);
+int ets_snprintf(char *buf, unsigned int size, const char *format, ...);
+int ets_vsnprintf(char *, size_t, const char *, va_list);
 
 #endif
-

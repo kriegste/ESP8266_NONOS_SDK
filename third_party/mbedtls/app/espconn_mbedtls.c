@@ -443,9 +443,9 @@ static void mbedtls_fail_info(espconn_msg *pinfo, int ret)
             }
 	} else{
 		if (pinfo->preverse != NULL) {
-			os_printf("server handshake failed!\n");
+			os_printf("* SSL server handshake error -0x%2x\n", -ret);
 		} else {
-			os_printf("client handshake failed!\n");
+			os_printf("* SSL client handshake error -0x%2x\n", -ret);
 		}
 	}
 

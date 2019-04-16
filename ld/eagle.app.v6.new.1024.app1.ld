@@ -171,7 +171,6 @@ SECTIONS
     *libmbedtls.a:(.literal.* .text.*)
 
     *libm.a:(.literal .text .literal.* .text.*)
-
     *libc.a:(.literal .text .literal.* .text.*)
     *libgcc.a:(.literal .text .literal.* .text.*)
 

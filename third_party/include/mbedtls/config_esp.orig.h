@@ -184,7 +184,7 @@ int system_get_data_of_array_8(const unsigned char *array, int size);
  *
  * Uncomment to get errors on using deprecated functions.
  */
-#define MBEDTLS_DEPRECATED_REMOVED
+//#define MBEDTLS_DEPRECATED_REMOVED
 
 /* \} name SECTION: System support */
 
@@ -309,7 +309,7 @@ int system_get_data_of_array_8(const unsigned char *array, int size);
  *
  * Uncomment this macro to use less memory for Camellia.
  */
-#define MBEDTLS_CAMELLIA_SMALL_MEMORY
+//#define MBEDTLS_CAMELLIA_SMALL_MEMORY
 
 /**
  * \def MBEDTLS_CIPHER_MODE_CBC
@@ -544,7 +544,7 @@ int system_get_data_of_array_8(const unsigned char *array, int size);
  *      MBEDTLS_TLS_RSA_PSK_WITH_3DES_EDE_CBC_SHA
  *      MBEDTLS_TLS_RSA_PSK_WITH_RC4_128_SHA
  */
-//#define MBEDTLS_KEY_EXCHANGE_RSA_PSK_ENABLED
+#define MBEDTLS_KEY_EXCHANGE_RSA_PSK_ENABLED
 
 /**
  * \def MBEDTLS_KEY_EXCHANGE_RSA_ENABLED
@@ -598,7 +598,6 @@ int system_get_data_of_array_8(const unsigned char *array, int size);
  *      MBEDTLS_TLS_DHE_RSA_WITH_CAMELLIA_128_CBC_SHA
  *      MBEDTLS_TLS_DHE_RSA_WITH_3DES_EDE_CBC_SHA
  */
-// Results in a WDT reset
 //#define MBEDTLS_KEY_EXCHANGE_DHE_RSA_ENABLED
 
 /**
@@ -729,7 +728,7 @@ int system_get_data_of_array_8(const unsigned char *array, int size);
  *
  * Disable if you only need to support RFC 5915 + 5480 key formats.
  */
-//#define MBEDTLS_PK_PARSE_EC_EXTENDED
+#define MBEDTLS_PK_PARSE_EC_EXTENDED
 
 /**
  * \def MBEDTLS_ERROR_STRERROR_DUMMY
@@ -744,7 +743,7 @@ int system_get_data_of_array_8(const unsigned char *array, int size);
  * Disable if you run into name conflicts and want to really remove the
  * mbedtls_strerror()
  */
-//#define MBEDTLS_ERROR_STRERROR_DUMMY
+#define MBEDTLS_ERROR_STRERROR_DUMMY
 
 /**
  * \def MBEDTLS_GENPRIME
@@ -753,7 +752,7 @@ int system_get_data_of_array_8(const unsigned char *array, int size);
  *
  * Requires: MBEDTLS_BIGNUM_C
  */
-//#define MBEDTLS_GENPRIME
+#define MBEDTLS_GENPRIME
 
 /**
  * \def MBEDTLS_FS_IO
@@ -800,7 +799,7 @@ int system_get_data_of_array_8(const unsigned char *array, int size);
  * This option is only useful if both MBEDTLS_SHA256_C and
  * MBEDTLS_SHA512_C are defined. Otherwise the available hash module is used.
  */
-#define MBEDTLS_ENTROPY_FORCE_SHA256
+//#define MBEDTLS_ENTROPY_FORCE_SHA256
 
 /**
  * \def MBEDTLS_MEMORY_DEBUG
@@ -834,7 +833,7 @@ int system_get_data_of_array_8(const unsigned char *array, int size);
  *
  * Comment this macro to disable support for external private RSA keys.
  */
-//#define MBEDTLS_PK_RSA_ALT_SUPPORT
+#define MBEDTLS_PK_RSA_ALT_SUPPORT
 
 /**
  * \def MBEDTLS_PKCS1_V15
@@ -856,7 +855,7 @@ int system_get_data_of_array_8(const unsigned char *array, int size);
  *
  * This enables support for RSAES-OAEP and RSASSA-PSS operations.
  */
-//#define MBEDTLS_PKCS1_V21
+#define MBEDTLS_PKCS1_V21
 
 /**
  * \def MBEDTLS_RSA_NO_CRT
@@ -915,7 +914,7 @@ int system_get_data_of_array_8(const unsigned char *array, int size);
  *
  * Enable sending of all alert messages
  */
-//#define MBEDTLS_SSL_ALL_ALERT_MESSAGES
+#define MBEDTLS_SSL_ALL_ALERT_MESSAGES
 
 /**
  * \def MBEDTLS_SSL_DEBUG_ALL
@@ -1006,7 +1005,7 @@ int system_get_data_of_array_8(const unsigned char *array, int size);
  *
  * Comment this macro to disable 1/n-1 record splitting.
  */
-//#define MBEDTLS_SSL_CBC_RECORD_SPLITTING
+#define MBEDTLS_SSL_CBC_RECORD_SPLITTING
 
 /**
  * \def MBEDTLS_SSL_RENEGOTIATION
@@ -1074,7 +1073,7 @@ int system_get_data_of_array_8(const unsigned char *array, int size);
  *
  * Comment this macro to disable support for TLS 1.0
  */
-//#define MBEDTLS_SSL_PROTO_TLS1
+#define MBEDTLS_SSL_PROTO_TLS1
 
 /**
  * \def MBEDTLS_SSL_PROTO_TLS1_1
@@ -1086,7 +1085,7 @@ int system_get_data_of_array_8(const unsigned char *array, int size);
  *
  * Comment this macro to disable support for TLS 1.1 / DTLS 1.0
  */
-//#define MBEDTLS_SSL_PROTO_TLS1_1
+#define MBEDTLS_SSL_PROTO_TLS1_1
 
 /**
  * \def MBEDTLS_SSL_PROTO_TLS1_2
@@ -1217,7 +1216,7 @@ int system_get_data_of_array_8(const unsigned char *array, int size);
  *
  * Comment this macro to disable support for server name indication in SSL
  */
-//#define MBEDTLS_SSL_SERVER_NAME_INDICATION
+#define MBEDTLS_SSL_SERVER_NAME_INDICATION
 
 /**
  * \def MBEDTLS_SSL_TRUNCATED_HMAC
@@ -1364,7 +1363,7 @@ int system_get_data_of_array_8(const unsigned char *array, int size);
  *
  * This modules adds support for the AES-NI instructions on x86-64
  */
-//#define MBEDTLS_AESNI_C
+#define MBEDTLS_AESNI_C
 
 /**
  * \def MBEDTLS_AES_C
@@ -1490,7 +1489,7 @@ int system_get_data_of_array_8(const unsigned char *array, int size);
  *          library/x509write_crt.c
  *          library/mbedtls_x509write_csr.c
  */
-//#define MBEDTLS_ASN1_WRITE_C
+#define MBEDTLS_ASN1_WRITE_C
 
 /**
  * \def MBEDTLS_BASE64_C
@@ -1502,7 +1501,7 @@ int system_get_data_of_array_8(const unsigned char *array, int size);
  *
  * This module is required for PEM support (required by X.509).
  */
-//#define MBEDTLS_BASE64_C
+#define MBEDTLS_BASE64_C
 
 /**
  * \def MBEDTLS_BIGNUM_C
@@ -1688,7 +1687,6 @@ int system_get_data_of_array_8(const unsigned char *array, int size);
  * This module is used by the following key exchanges:
  *      DHE-RSA, DHE-PSK
  */
-// Results in a WDT reset
 //#define MBEDTLS_DHM_C
 
 /**
@@ -1793,7 +1791,7 @@ int system_get_data_of_array_8(const unsigned char *array, int size);
  * This module enables the AES-GCM and CAMELLIA-GCM ciphersuites, if other
  * requisites are enabled as well.
  */
-//#define MBEDTLS_GCM_C
+//#define MBEDTLS_GCM_C	//764 Byte
 
 /**
  * \def MBEDTLS_HAVEGE_C
@@ -1881,7 +1879,7 @@ int system_get_data_of_array_8(const unsigned char *array, int size);
  * This module is required for SSL/TLS and X.509.
  * PEM_PARSE uses MD5 for decrypting encrypted keys.
  */
-//#define MBEDTLS_MD5_C
+#define MBEDTLS_MD5_C
 
 /**
  * \def MBEDTLS_MEMORY_BUFFER_ALLOC_C
@@ -1963,7 +1961,7 @@ int system_get_data_of_array_8(const unsigned char *array, int size);
  *
  * This modules adds support for decoding / parsing PEM files.
  */
-//#define MBEDTLS_PEM_PARSE_C
+#define MBEDTLS_PEM_PARSE_C
 
 /**
  * \def MBEDTLS_PEM_WRITE_C
@@ -1979,7 +1977,7 @@ int system_get_data_of_array_8(const unsigned char *array, int size);
  *
  * This modules adds support for encoding / writing PEM files.
  */
-//#define MBEDTLS_PEM_WRITE_C
+#define MBEDTLS_PEM_WRITE_C
 
 /**
  * \def MBEDTLS_PK_C
@@ -2024,7 +2022,7 @@ int system_get_data_of_array_8(const unsigned char *array, int size);
  *
  * Uncomment to enable generic public key write functions.
  */
-//#define MBEDTLS_PK_WRITE_C
+#define MBEDTLS_PK_WRITE_C
 
 /**
  * \def MBEDTLS_PKCS5_C
@@ -2133,7 +2131,7 @@ int system_get_data_of_array_8(const unsigned char *array, int size);
  *
  * This module is required for SSL/TLS and SHA1-signed certificates.
  */
-//#define MBEDTLS_SHA1_C
+#define MBEDTLS_SHA1_C
 
 /**
  * \def MBEDTLS_SHA256_C
@@ -2165,7 +2163,7 @@ int system_get_data_of_array_8(const unsigned char *array, int size);
  *
  * This module adds support for SHA-384 and SHA-512.
  */
-//#define MBEDTLS_SHA512_C
+#define MBEDTLS_SHA512_C
 
 /**
  * \def MBEDTLS_SSL_CACHE_C
@@ -2227,7 +2225,7 @@ int system_get_data_of_array_8(const unsigned char *array, int size);
  *
  * This module is required for SSL/TLS server support.
  */
-//#define MBEDTLS_SSL_SRV_C
+#define MBEDTLS_SSL_SRV_C
 
 /**
  * \def MBEDTLS_SSL_TLS_C
@@ -2287,7 +2285,7 @@ int system_get_data_of_array_8(const unsigned char *array, int size);
  *
  * This module provides run-time version information.
  */
-//#define MBEDTLS_VERSION_C
+#define MBEDTLS_VERSION_C
 
 /**
  * \def MBEDTLS_X509_USE_C
@@ -2334,7 +2332,7 @@ int system_get_data_of_array_8(const unsigned char *array, int size);
  *
  * This module is required for X.509 CRL parsing.
  */
-//#define MBEDTLS_X509_CRL_PARSE_C
+#define MBEDTLS_X509_CRL_PARSE_C
 
 /**
  * \def MBEDTLS_X509_CSR_PARSE_C
@@ -2348,7 +2346,7 @@ int system_get_data_of_array_8(const unsigned char *array, int size);
  *
  * This module is used for reading X.509 certificate request.
  */
-//#define MBEDTLS_X509_CSR_PARSE_C
+#define MBEDTLS_X509_CSR_PARSE_C
 
 /**
  * \def MBEDTLS_X509_CREATE_C
@@ -2361,7 +2359,7 @@ int system_get_data_of_array_8(const unsigned char *array, int size);
  *
  * This module is the basis for creating X.509 certificates and CSRs.
  */
-//#define MBEDTLS_X509_CREATE_C
+#define MBEDTLS_X509_CREATE_C
 
 /**
  * \def MBEDTLS_X509_CRT_WRITE_C
@@ -2374,7 +2372,7 @@ int system_get_data_of_array_8(const unsigned char *array, int size);
  *
  * This module is required for X.509 certificate creation.
  */
-//#define MBEDTLS_X509_CRT_WRITE_C
+#define MBEDTLS_X509_CRT_WRITE_C
 
 /**
  * \def MBEDTLS_X509_CSR_WRITE_C
@@ -2387,7 +2385,7 @@ int system_get_data_of_array_8(const unsigned char *array, int size);
  *
  * This module is required for X.509 certificate request writing.
  */
-//#define MBEDTLS_X509_CSR_WRITE_C
+#define MBEDTLS_X509_CSR_WRITE_C
 
 /**
  * \def MBEDTLS_XTEA_C
@@ -2397,7 +2395,7 @@ int system_get_data_of_array_8(const unsigned char *array, int size);
  * Module:  library/xtea.c
  * Caller:
  */
-//#define MBEDTLS_XTEA_C
+#define MBEDTLS_XTEA_C
 
 /* \} name SECTION: mbed TLS modules */
 
