@@ -38,6 +38,8 @@
 #include "lwip/mem.h"
 #include "sys/socket.h"
 
+#include "user_interface.h"
+
 #ifdef MEMLEAK_DEBUG
 static const char mem_debug_file[] ICACHE_RODATA_ATTR = __FILE__;
 #endif

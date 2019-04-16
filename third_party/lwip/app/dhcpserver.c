@@ -232,6 +232,14 @@ static uint8_t* ICACHE_FLASH_ATTR add_offer_options(uint8_t *optptr)
         *optptr++ = 0x00;
         *optptr++ = 0x02;
 
+		// https://tools.ietf.org/html/rfc7710
+		char buff[32];
+        uint8_t len = os_sprintf(buff, "http://"IPSTR, IP2STR(&ipadd.addr)) - 1; // Omit null terminator
+        *optptr++ = 160; // DHCP option "captive portal"
+        *optptr++ = len;
+        memcpy(optptr, buff, len);
+        optptr += len;
+
         return optptr;
 }
 ///////////////////////////////////////////////////////////////////////////////////
