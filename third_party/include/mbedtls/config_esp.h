@@ -598,7 +598,7 @@ int system_get_data_of_array_8(const unsigned char *array, int size);
  *      MBEDTLS_TLS_DHE_RSA_WITH_CAMELLIA_128_CBC_SHA
  *      MBEDTLS_TLS_DHE_RSA_WITH_3DES_EDE_CBC_SHA
  */
-// Results in a WDT reset
+// Defined by Espressif; not used; resulted in a WDT reset before
 //#define MBEDTLS_KEY_EXCHANGE_DHE_RSA_ENABLED
 
 /**
@@ -1062,6 +1062,7 @@ int system_get_data_of_array_8(const unsigned char *array, int size);
  *
  * Comment this macro to disable support for SSL 3.0
  */
+// Defined by Espressif; not used
 //#define MBEDTLS_SSL_PROTO_SSL3
 
 /**
@@ -1688,7 +1689,7 @@ int system_get_data_of_array_8(const unsigned char *array, int size);
  * This module is used by the following key exchanges:
  *      DHE-RSA, DHE-PSK
  */
-// Results in a WDT reset
+// Defined by Espressif; not used; resulted in a WDT reset before
 //#define MBEDTLS_DHM_C
 
 /**
