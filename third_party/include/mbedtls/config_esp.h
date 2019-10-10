@@ -2485,7 +2485,7 @@ extern unsigned int max_content_len;
  * Module:  library/ssl_tls.c
  * Caller:
  */
-#define ESP8266_PLATFORM
+//#define ESP8266_PLATFORM
 
 /**
  * Complete list of ciphersuites to use, in order of preference.
