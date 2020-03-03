@@ -226,6 +226,7 @@
 #define FUNC_GPIO15                     3
 #define FUNC_U0RTS                      4
 #define PERIPHS_IO_MUX_U0RXD_U          (PERIPHS_IO_MUX + 0x14)
+#define	FUNC_U0RXD			0
 #define FUNC_GPIO3                      3
 #define PERIPHS_IO_MUX_U0TXD_U          (PERIPHS_IO_MUX + 0x18)
 #define FUNC_U0TXD                      0

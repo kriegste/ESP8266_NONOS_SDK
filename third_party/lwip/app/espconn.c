@@ -1310,6 +1310,7 @@ espconn_delete(struct espconn *espconn)
 uint32 ICACHE_FLASH_ATTR
 espconn_port(void)
 {
+/*
     uint32 port = 0;
     static uint32 randnum = 0;
 
@@ -1331,6 +1332,25 @@ espconn_port(void)
     randnum = port;
 
     return port;
+*/
+	espconn_msg *plist = NULL;
+	while (1) {
+		uint16_t port = os_random();
+		if (port == 0) continue;
+
+		bool available = true;
+		for (plist = plink_active; plist != NULL; plist = plist->pnext) {
+			if (!plist->pespconn) continue;
+
+			if (((plist->pespconn->type == ESPCONN_TCP) && (port == plist->pespconn->proto.tcp->local_port)) ||
+				((plist->pespconn->type == ESPCONN_UDP) && (port == plist->pespconn->proto.udp->local_port))) {
+				available = false;
+				break;
+			}
+		}
+
+		if (available) return port; 
+	}
 }
 
 /******************************************************************************
