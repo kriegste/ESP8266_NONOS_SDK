@@ -515,7 +515,7 @@ sint8 espconn_secure_sent(struct espconn *espconn, uint8 *psent, uint16 length);
  * Returns      : true or false
 *******************************************************************************/
 
-bool espconn_secure_set_size(uint8 level, uint16 size);
+//bool espconn_secure_set_size(uint8 level, uint16 size);
 
 /******************************************************************************
  * FunctionName : espconn_secure_get_size
@@ -525,7 +525,7 @@ bool espconn_secure_set_size(uint8 level, uint16 size);
  * Returns      : buffer size for client or server
 *******************************************************************************/
 
-sint16 espconn_secure_get_size(uint8 level);
+//sint16 espconn_secure_get_size(uint8 level);
 
 /******************************************************************************
  * FunctionName : espconn_secure_ca_enable

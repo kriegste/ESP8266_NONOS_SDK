@@ -269,7 +269,7 @@ extern void espconn_ssl_disconnect(espconn_msg *pdis);
  * Returns      : buffer size for client or server
 *******************************************************************************/
 
-extern sint16 espconn_secure_get_size(uint8 level);
+//extern sint16 espconn_secure_get_size(uint8 level);
 
 /******************************************************************************
  * FunctionName : espconn_ssl_delete

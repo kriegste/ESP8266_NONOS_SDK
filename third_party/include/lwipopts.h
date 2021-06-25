@@ -843,6 +843,7 @@ https://github.com/espressif/ESP8266_NONOS_SDK/issues/294
  */
 #ifndef DNS_LOCAL_HOSTLIST
 #define DNS_LOCAL_HOSTLIST              0
+//#define DNS_LOCAL_HOSTLIST_INIT {{"esp", 0xC0A80401}, {"test", 0x0104A8C0}}
 #endif /* DNS_LOCAL_HOSTLIST */
 
 /** If this is turned on, the local host-list can be dynamically changed

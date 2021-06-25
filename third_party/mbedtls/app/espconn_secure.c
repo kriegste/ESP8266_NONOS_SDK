@@ -45,7 +45,7 @@ ssl_opt ssl_option = {
 		0
 };
 
-unsigned int max_content_len = ESPCONN_SECURE_DEFAULT_SIZE;
+//unsigned int max_content_len = ESPCONN_SECURE_DEFAULT_SIZE;
 /******************************************************************************
  * FunctionName : espconn_encry_connect
  * Description  : The function given as the connect
@@ -95,7 +95,7 @@ espconn_secure_connect(struct espconn *espconn)
 			}
 		}
 	}
-	current_size = espconn_secure_get_size(ESPCONN_CLIENT);
+	current_size = MBEDTLS_SSL_MAX_CONTENT_LEN;//espconn_secure_get_size(ESPCONN_CLIENT);
 	current_size += ESPCONN_SECURE_DEFAULT_HEAP;
 //	ssl_printf("heap_size %d %d\n", system_get_free_heap_size(), current_size);
 	if (system_get_free_heap_size() <= current_size)
@@ -190,6 +190,7 @@ espconn_secure_accept(struct espconn *espconn)
  * 				  size -- buffer size
  * Returns      : true or false
 *******************************************************************************/
+/*
 bool ICACHE_FLASH_ATTR espconn_secure_set_size(uint8 level, uint16 size)
 {
 	if (level >= ESPCONN_MAX || level <= ESPCONN_IDLE)
@@ -201,7 +202,7 @@ bool ICACHE_FLASH_ATTR espconn_secure_set_size(uint8 level, uint16 size)
 	max_content_len = size;
 	return true;
 }
-
+*/
 /******************************************************************************
  * FunctionName : espconn_secure_get_size
  * Description  : get buffer size for client or server
@@ -209,6 +210,7 @@ bool ICACHE_FLASH_ATTR espconn_secure_set_size(uint8 level, uint16 size)
  *				  1: client,2:server,3:client and server
  * Returns      : buffer size for client or server
 *******************************************************************************/
+/*
 sint16 ICACHE_FLASH_ATTR espconn_secure_get_size(uint8 level)
 {
 	if (level >= ESPCONN_MAX || level <= ESPCONN_IDLE)
@@ -216,7 +218,7 @@ sint16 ICACHE_FLASH_ATTR espconn_secure_get_size(uint8 level)
 
 	return max_content_len;
 }
-
+*/
 /******************************************************************************
  * FunctionName : espconn_secure_ca_enable
  * Description  : enable the certificate authenticate and set the flash sector

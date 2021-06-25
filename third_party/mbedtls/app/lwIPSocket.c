@@ -135,12 +135,13 @@ static void free_netconn(lwIP_netconn *netconn)
 static lwIP_netconn *
 netconn_alloc(netconn_type type, void *arg)
 {
+/*
     int heap = system_get_free_heap_size();
     if (heap < 15000) {
         os_printf("* netconn_alloc heap=%d\n", heap);
         return NULL;
     }
-
+*/
     sint8 ret = ERR_OK;
     lwIP_netconn *netconn = NULL;
     struct tcp_pcb *pcb = arg;
@@ -202,6 +203,15 @@ static err_t recv_tcp(void *arg, struct tcp_pcb *pcb, struct pbuf *p, err_t err)
         {
             for (pthis = p; pthis != NULL; pthis = pthis->next)
             {
+
+                if (newconn->readbuf == NULL) // Prevent a NULL pointer exception ("LoadProhibitedCause") from happening
+                {           
+                    tcp_recved(newconn->tcp, p->tot_len);
+                    pbuf_free(p);
+                    err = ERR_MEM;
+                    return err;
+                }        
+
                 newconn->state = NETCONN_STATE_READ;
                 ringbuf_memcpy_into(newconn->readbuf, pthis->payload, pthis->len);
                 tcp_recved(newconn->tcp, pthis->len);
@@ -308,12 +318,13 @@ exit:
 
 static err_t do_accepted(void *arg, struct tcp_pcb *newpcb, err_t err)
 {
+/*
     int heap = system_get_free_heap_size();
     if (heap < 15000) {
         os_printf("* do_accepted heap=%d\n", heap);
         return ERR_MEM;
     }
-
+*/
     lwIP_netconn *newconn = NULL;
     lwIP_netconn *conn = arg;
     err = ERR_OK;

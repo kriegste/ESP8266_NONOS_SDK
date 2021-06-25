@@ -443,14 +443,15 @@ static void mbedtls_fail_info(espconn_msg *pinfo, int ret)
             }
 	} else{
 		if (pinfo->preverse != NULL) {
-			os_printf("* SSL server handshake error -0x%2x\n", -ret);
+			os_printf("* SSL server handshake=-0x%04X\n", -ret);
 		} else {
-			os_printf("* SSL client handshake error -0x%2x\n", -ret);
+			os_printf("* SSL client handshake=-0x%04X\n", -ret);
 		}
 	}
 
 //	os_printf("Reason:[-0x%2x]\n",-ret);
 	/*Error code convert*/
+/*
 	ret = -ret;
 	if ((ret & 0xFF) != 0){
 		ret = ((ret >> 8) + ret);
@@ -458,10 +459,12 @@ static void mbedtls_fail_info(espconn_msg *pinfo, int ret)
 		ret >>= 8;
 	}
 	pinfo->hs_status = -ret;
+*/
+	pinfo->hs_status = ESPCONN_CLSD;
 	pinfo->pespconn->state = ESPCONN_CLOSE;
 
 	mbedtls_net_free(&TLSmsg->fd);
-		
+
 exit:
 	return;
 }

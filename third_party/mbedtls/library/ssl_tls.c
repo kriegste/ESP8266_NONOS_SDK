@@ -5483,8 +5483,8 @@ static int ssl_session_reset_int( mbedtls_ssl_context *ssl, int partial )
     ssl->transform_out = NULL;
 
     memset( ssl->out_buf, 0, MBEDTLS_SSL_BUFFER_LEN );
-    if( partial == 0 )
-        memset( ssl->in_buf, 0, MBEDTLS_SSL_BUFFER_LEN );
+//    if( partial == 0 )
+//        memset( ssl->in_buf, 0, MBEDTLS_SSL_BUFFER_LEN );
 
 #if defined(MBEDTLS_SSL_HW_RECORD_ACCEL)
     if( mbedtls_ssl_hw_record_reset != NULL )
